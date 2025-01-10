@@ -54,7 +54,7 @@ export default function Cart({cart, removeCart, handleOrders, delFromCart} : Car
           onClick={() => {
               setCartOpen(true)
             }
-          }><img src="../../public/icon/icon_cart.svg"/></a>
+          }><img src="/icon/icon_cart.svg"/></a>
       }
     </div>
   )
