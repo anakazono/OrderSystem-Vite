@@ -15,13 +15,6 @@ export type Order = {
   numOfItems? : number
 }
 
-//export type Items = {
-//  url : string
-//  name : string
-//  price : number
-//  sort : Sort
-//}
-
 type ScreenType = "MENU" | "HISTORY"
 
 export default function App(){
@@ -30,34 +23,33 @@ export default function App(){
   const [screen, setScreen] = useState<ScreenType>("MENU")
   const [cart, setCart] = useState<Order[]>([])
   const [orders, setOrders] = useState<Order[]>([])
-  //@ts-ignore TS6133: "setItemsArray" is declared but its value is never read.
-  const [itemsArray, setItemsArray] = useState<Order[]>([
+  const [itemsArray] = useState<Order[]>([
     {
-      url : "../public/調理加工食品類_餃子_017_202mm_81g.png",
+      url : "/images/調理加工食品類_餃子_017_202mm_81g.png",
       name : "餃子",
       price : 400,
       sort : "SUB"
     },
     {
-      url : "../public/調理加工食品類_酢豚_009_170mm_292g.png",
+      url : "/images/調理加工食品類_酢豚_009_170mm_292g.png",
       name : "酢豚",
       price : 600,
       sort : "MAIN"
     },
     {
-      url : "../public/調理加工食品類_回鍋肉_002_152mm_211g.png",
+      url : "/images/調理加工食品類_回鍋肉_002_152mm_211g.png",
       name : "回鍋肉",
       price : 800,
       sort : "MAIN"
     },
     {
-      url : "../public/調理加工食品類_天津飯_013_179mm_330g.png",
+      url : "/images/調理加工食品類_天津飯_013_179mm_330g.png",
       name : "天津飯",
       price : 500,
       sort : "MAIN"
     },
     {
-      url : "../public/調理加工食品類_春巻き_023_202mm_176g.png",
+      url : "/images/調理加工食品類_春巻き_023_202mm_176g.png",
       name : "春巻き",
       price : 300,
       sort : "SUB"
@@ -111,9 +103,9 @@ export default function App(){
     return (
       <div>
         <div className="menuhistory">
-          <a onClick={() => setScreen("MENU")}><img src="../public/icon/icon_menu.svg"/><span><b>MENU</b></span></a>
-          <a onClick={() => setScreen("HISTORY")}><img src="../public/icon/icon_budget.svg"/><span><b>CHECK</b></span></a>
-          <a onClick={() => setStartOrder(false)}><img src="../public/icon/icon_return.svg"/><span><b>GO BACK</b></span></a>
+          <a onClick={() => setScreen("MENU")}><img src="/icon/icon_menu.svg"/><span><b>MENU</b></span></a>
+          <a onClick={() => setScreen("HISTORY")}><img src="/icon/icon_budget.svg"/><span><b>CHECK</b></span></a>
+          <a onClick={() => setStartOrder(false)}><img src="/icon/icon_return.svg"/><span><b>GO BACK</b></span></a>
         </div>
         <Cart cart={cart} removeCart={removeCart} handleOrders={handleOrders} delFromCart={delFromCart}/>
         {screen === "MENU" && <Menu handleCart={handleCart} itemsArray={itemsArray}/>}
